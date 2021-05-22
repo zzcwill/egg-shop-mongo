@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<!-- <link rel="shortcut icon" href="/images/favicon.ico"/> -->
+	<meta name="viewport" content="width=1240,user-scalable=yes">
+	<meta name="keywords" content="zzc" />
+	<meta name="description" content="zzc" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>
+		<%= title %>
+	</title>
+	<link rel='stylesheet' href='/public/css/reset.css' />
+	<link rel='stylesheet' href='/public/css/common.css' />
+	<script src="/public/js/jquery-1.11.1.min.js"></script>
+	<script src="/public/js/common.js"></script>
+</head>
+<style>
+	h1 {
+		margin: 20px auto;
+		text-align: center;
+	}
+
+	h2 {
+		margin: 10px auto;
+		text-align: center;
+	}
+
+	h3 {
+		margin: 10px auto;
+		width: 302px;
+		height: 34px;
+		background-color: #000;
+	}
+</style>
+
+<body>
+	<h1>
+		<%= title %>
+	</h1>
+
+	<h2 id="demo1">客户列表</h2>
+	<br />
+	<h2 id="demo2">客户新增</h2>
+	<br />
+	<h2 id="demo3">客户修改</h2>
+	<br />
+	<h2 id="demo4">客户删除</h2>
+	<br />
+
+
+	<script>
+		$('#demo1').bind('click', function () {
+
+			var apiData = {
+				token: token,
+				page: 1,
+				pageSize: 10
+			}
+
+			$.ajax({
+				type: "post",
+				url: baseUrl + "customer/list",
+				contentType: 'application/x-www-form-urlencoded',
+				data: apiData,
+				success: function (res) {
+					console.log(res);
+				},
+				error: function () {
+				}
+			});
+		})
+		$('#demo2').bind('click', function () {
+
+			var apiData = {
+				token: token,
+
+				name: 'test客户' + random(),
+				phone: '18042434280',
+				address: '金海社区'		
+			}
+
+			$.ajax({
+				type: "post",
+				url: baseUrl + "customer/add",
+				contentType: 'application/x-www-form-urlencoded',
+				data: apiData,
+				success: function (res) {
+					console.log(res);
+				},
+				error: function () {
+				}
+			});
+		})
+
+		$('#demo3').bind('click', function () {
+
+			var apiData = {
+				token: token,
+				id: 2,
+				name: 'test客户' + random(),
+				phone: '18042434280',				
+				address: 'test修改' + random()
+			}
+
+			$.ajax({
+				type: "post",
+				url: baseUrl + "customer/update",
+				contentType: 'application/x-www-form-urlencoded',
+				data: apiData,
+				success: function (res) {
+					console.log(res);
+				},
+				error: function () {
+				}
+			});
+		})
+
+		$('#demo4').bind('click', function () {
+
+			var apiData = {
+				token: token,
+				id: 2
+			}
+
+			$.ajax({
+				type: "post",
+				url: baseUrl + "customer/delete",
+				contentType: 'application/x-www-form-urlencoded',
+				data: apiData,
+				success: function (res) {
+					console.log(res);
+				},
+				error: function () {
+				}
+			});
+		})
+
+
+	</script>
+</body>
+
+</html>
