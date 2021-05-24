@@ -22,6 +22,25 @@ class UserService extends Service {
   }
   async createUser(user) {
     const { User } = this.ctx.model;
+
+    let query = {};
+    const opts = { 
+      skip: 0, 
+      limit: 1, 
+      sort: {
+        uid: -1
+      } 
+    };
+    let maxUser = await User.find(query, '', opts).exec();
+    // console.info(maxUser)
+
+    if(maxUser.length === 0) {
+      user.uid = 1;
+    }
+    if(maxUser.length !== 0) {
+      user.uid = maxUser[0].toObject().uid + 1;
+    }
+
     let newUser = new User(user)
     let toUser = await newUser.save()
 

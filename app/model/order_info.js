@@ -9,9 +9,9 @@ module.exports = app => {
   const OrderInfoSchema = new Schema({
     order_id: { type: ObjectId, required: true },
     goods_id: { type: ObjectId, required: true },
-    num: { type: Number },
-    actual_price: { type: Decimal128, required: true },
-    actual_fee: { type: Decimal128, required: true },
+    num: { type: Number, default: null  },
+    actual_price: { type: Decimal128, required: true, default: null  },
+    actual_fee: { type: Decimal128, required: true, default: null  },
     is_deleted: { type: Number, default: 0, required: true },
     create_time: { type: Date, default: Date.now, required: true },
     modify_time: { type: Date, default: Date.now, required: true },

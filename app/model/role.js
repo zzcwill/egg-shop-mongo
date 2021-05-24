@@ -7,13 +7,16 @@ module.exports = app => {
   const Decimal128 = mongoose.Schema.Types.Decimal128;
 
   const RoleSchema = new Schema({
+    id: { type: Number, required: true  },
     name: { type: String, required: true },
     role_code: { type: String, required: true },
-    note: { type: String },
+    note: { type: String, default: null  },
     status: { type: Number, default: 1, required: true },
     create_time: { type: Date, default: Date.now, required: true },
     modify_time: { type: Date, default: Date.now, required: true }
   });
+
+  RoleSchema.index({ id: 1 }, { name: 'key_id' });
 
   RoleSchema.pre('save', function(next) {
     const now = new Date();

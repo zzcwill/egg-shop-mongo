@@ -60,6 +60,8 @@ class EmailController extends Controller {
 			html,
 		});
 
+		console.info(data)
+
 		if(data) {
 			ctx.body = resOk({
 				isOK: 1

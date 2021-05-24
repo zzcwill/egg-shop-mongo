@@ -6,15 +6,18 @@ module.exports = app => {
   const ObjectId = Schema.ObjectId;
 
   const MenuSchema = new Schema({
-    menu_name: { type: String },
-    url: { type: String },
-    parent_id: { type: String },
-    orders: { type: Number },
-    logo_tag: { type: String },
-    level: { type: Number },
+    id: { type: Number, required: true  },
+    menu_name: { type: String, default: null  },
+    url: { type: String, default: null  },
+    parent_id: { type: Number, default: null  },
+    orders: { type: Number, default: null  },
+    logo_tag: { type: String, default: null  },
+    level: { type: Number, default: null  },
     create_time: { type: Date, default: Date.now, required: true },
     modify_time: { type: Date, default: Date.now, required: true }
   });
+
+  MenuSchema.index({ id: 1 }, { name: 'key_id' });
 
   MenuSchema.pre('save', function(next) {
     const now = new Date();

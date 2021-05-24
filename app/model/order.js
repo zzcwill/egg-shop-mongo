@@ -11,8 +11,8 @@ module.exports = app => {
     customer_id: { type: ObjectId, required: true },
     shop_id: { type: Number, required: true },
     customer_name: { type: String, required: true },
-    phone: { type: String },
-    address: { type: String },
+    phone: { type: String, default: null  },
+    address: { type: String , default: null },
     // 1零售 2批发 3代卖
     sale_type: { type: Number, required: true },
     express_fee: { type: Decimal128, default: 0.00, required: true },

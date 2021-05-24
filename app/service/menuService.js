@@ -43,14 +43,27 @@ class MenuService extends Service {
 
     let { page, pageSize } = search;
     let offset = (page - 1) * pageSize;
-		const { count, rows } = await Menu.findAndCountAll({
-			where: {},
-			offset: offset,
-			limit: pageSize,
-      raw:true
-		});
+    let query = {};
+    const opts = { 
+      skip: offset, 
+      limit: pageSize, 
+      sort: {
+        create_time: -1
+      } 
+    };
+    let menuList = await Menu.find(query, '', opts).exec();
 
-    let treeMenu = getTreeMenu(rows)
+    let toMenuList = []
+    menuList.forEach((item)=>{
+      toMenuList.push(item.toObject({virtuals: true}))
+    })
+
+    // console.info(toMenuList)
+
+    let treeMenu = []
+    if(toMenuList.length !== 0) {
+      treeMenu = getTreeMenu(toMenuList)      
+    }
 
     return {
       list: treeMenu,

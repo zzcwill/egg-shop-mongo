@@ -43,7 +43,7 @@ class ExcelController extends Controller {
   async get2() {
     const { ctx, service, config } = this;
 
-    let url = '/public/demo.xlsx'
+    let url = '/public/excel/demo.xlsx'
     ctx.redirect(url)
   }
   async exportOrder() {

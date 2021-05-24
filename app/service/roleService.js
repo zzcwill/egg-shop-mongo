@@ -8,16 +8,24 @@ class RoleService extends Service {
 
     const { page, pageSize } = search
     let offset = (page - 1) * pageSize;
-		const { count, rows } = await Role.findAndCountAll({
-			where: {},
-			offset: offset,
-			limit: pageSize,
-      raw:true
-		});
+    let query = {};
+    const opts = { 
+      skip: offset, 
+      limit: pageSize, 
+      sort: {
+        create_time: -1
+      } 
+    };
+    let roleList = await Role.find(query, '', opts).exec();
+
+    let toRoleList = []
+    roleList.forEach((item)=>{
+      toRoleList.push(item.toObject({virtuals: true}))
+    })
 
     return {
-      list: rows,
-      count: count
+      list: toRoleList,
+      count: toRoleList.length
     }
   }
   async roleById(id) {

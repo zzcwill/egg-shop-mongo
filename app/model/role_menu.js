@@ -6,8 +6,8 @@ module.exports = app => {
   const ObjectId = Schema.ObjectId;
 
   const RoleMenuSchema = new Schema({
-    role_id: { type: ObjectId, required: true },
-    menu_id: { type: ObjectId, required: true },
+    role_id: { type: Number, required: true },
+    menu_id: { type: Number, required: true },
     create_time: { type: Date, default: Date.now, required: true },
     modify_time: { type: Date, default: Date.now, required: true }
   });
