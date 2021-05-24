@@ -24,7 +24,7 @@ module.exports = {
       production : {
           user : 'root',                      //ssh 用户
           host : '47.110.42.110',              //ssh 地址
-          ref  : 'origin/master',             //GIT远程/分支
+          ref  : 'origin/main',             //GIT远程/分支
           repo : 'git@github.com:zzcwill/egg-shop-mongo.git',   //git地址
           path : '/usr/app/egg-shop-mongo',       //服务器文件路径
           'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production',  //部署后的动作

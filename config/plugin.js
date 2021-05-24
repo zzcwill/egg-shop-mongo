@@ -9,11 +9,6 @@ exports.ejs = {
   package: 'egg-view-ejs'
 };
 
-exports.mysql = {
-  enable: true,
-  package: 'egg-mysql2'
-};
-
 exports.redis = {
   enable: true,
   package: 'egg-redis'
@@ -24,7 +19,7 @@ exports.routerPlus = {
   package: 'egg-router-plus',
 };
 
-exports.sequelize = {
+exports.mongoose = {
   enable: true,
-  package: 'egg-sequelize',
+  package: 'egg-mongoose',
 };
