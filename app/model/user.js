@@ -26,6 +26,10 @@ module.exports = app => {
 
   UserSchema.index({ username: 1 }, { unique: true, name: 'ukey_username' });
 
+  UserSchema.virtual('uid').get(function() {
+    return this._id;
+  });
+
   UserSchema.pre('save', function(next) {
     const now = new Date();
     this.modify_time = now;

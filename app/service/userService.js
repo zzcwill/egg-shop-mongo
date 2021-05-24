@@ -11,7 +11,7 @@ class UserService extends Service {
     let user = await User.findOne(query).exec();
 
     if(user) {
-      user = user.toObject()
+      user = user.toObject({virtuals: true})
       let register_time = user.register_time;
       let modify_time = user.modify_time;
       user.register_time = dayjs(register_time).format('YYYY-MM-DD HH:mm:ss');
@@ -26,7 +26,7 @@ class UserService extends Service {
     let toUser = await newUser.save()
 
     if(toUser) {
-      toUser = toUser.toObject()
+      toUser = toUser.toObject({virtuals: true})
       let register_time = toUser.register_time;
       let modify_time = toUser.modify_time;
       toUser.register_time = dayjs(register_time).format('YYYY-MM-DD HH:mm:ss');
@@ -38,14 +38,15 @@ class UserService extends Service {
   }
   async changePassword(password, uid) {
     const { User } = this.ctx.model;
-    let isOk = await User.update(
-      password,
-      {
-        //条件
-        where: uid
-      }
-    )
-    return isOk[0]
+
+    const query = { _id: uid.uid };
+    const update = password;
+    let isOk = await User.updateOne(query, update).exec();
+    // multi=true 修改符合条件的所有行
+    // let isOk = await User.update(query, update, { multi: true }).exec();
+
+    // isOk.n = 1 成功
+    return isOk.n
   }
   async getUserByOpenid(openid) {
     const { User } = this.ctx.model;
