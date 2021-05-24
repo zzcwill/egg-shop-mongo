@@ -1,7 +1,6 @@
 'use strict';
 
 const Service = require('egg').Service;
-const { QueryTypes } = require('sequelize');
 
 let getTreeMenu = (dataList) => {
   let dataArr = [];
@@ -64,26 +63,27 @@ class MenuService extends Service {
     const { uid, page, pageSize } = search;
     let offset = (page - 1) * pageSize;
 
-		let userRoleList = await this.app.model.query(
-      `
-        SELECT e.* 
-        FROM 
-        user a 
-        INNER JOIN user_role  b  on  a.uid = b.user_id 
-        INNER JOIN role  c  on  b.role_id = c.id
-        INNER JOIN role_menu d  on  c.id = d.role_id
-        INNER JOIN menu e  on  d.menu_id = e.id        
-        WHERE a.uid = ?
-        LIMIT ?
-        OFFSET ?;`,
-      {
-        replacements: [uid, pageSize, offset],
-        type: QueryTypes.SELECT,
-        raw: true
-      }
-    );
+		// let userRoleList = await this.app.model.query(
+    //   `
+    //     SELECT e.* 
+    //     FROM 
+    //     user a 
+    //     INNER JOIN user_role  b  on  a.uid = b.user_id 
+    //     INNER JOIN role  c  on  b.role_id = c.id
+    //     INNER JOIN role_menu d  on  c.id = d.role_id
+    //     INNER JOIN menu e  on  d.menu_id = e.id        
+    //     WHERE a.uid = ?
+    //     LIMIT ?
+    //     OFFSET ?;`,
+    //   {
+    //     replacements: [uid, pageSize, offset],
+    //     type: QueryTypes.SELECT,
+    //     raw: true
+    //   }
+    // );
 
-    let treeMenu = getTreeMenu(userRoleList)
+    // let treeMenu = getTreeMenu(userRoleList)
+    let treeMenu = []
 
     return {
       list: treeMenu,

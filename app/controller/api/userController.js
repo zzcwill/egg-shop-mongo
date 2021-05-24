@@ -1,6 +1,7 @@
 'use strict';
 
 const { Controller } = require('egg');
+const dayjs = require('dayjs')
 
 class UserController extends Controller {
 	async login() {
@@ -63,7 +64,7 @@ class UserController extends Controller {
 			return
 		}
 
-		let apidata = lodash.pick(user, ['uid', 'username', 'level', 'is_on_duty', 'register_time']);
+		let apidata = lodash.pick(user, ['_id', 'username', 'level', 'is_on_duty', 'register_time']);
 
 		let token = setToken(apidata);
 

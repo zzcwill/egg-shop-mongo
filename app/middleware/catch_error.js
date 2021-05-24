@@ -13,11 +13,11 @@ module.exports = () => {
   
       if (isDev) {
         if(!isHttpException) {
-          if(err.name === 'SequelizeDatabaseError') {
-            console.info(err.parent.sqlMessage)
-            ctx.body = resFail(err.parent.sqlMessage, resCodeArr[1][0]);
-            ctx.status = 500;     
-          }
+          // if(err.name === 'SequelizeDatabaseError') {
+          //   console.info(err.parent.sqlMessage)
+          //   ctx.body = resFail(err.parent.sqlMessage, resCodeArr[1][0]);
+          //   ctx.status = 500;     
+          // }
           if(err.name !== 'SequelizeDatabaseError') {
             console.info(err)
             throw err;          

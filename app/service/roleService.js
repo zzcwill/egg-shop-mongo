@@ -1,5 +1,4 @@
 'use strict';
-const { QueryTypes } = require('sequelize');
 
 const Service = require('egg').Service;
 
@@ -38,31 +37,31 @@ class RoleService extends Service {
     }
   }  
   async userRole(search) {
-    const { Role } = this.ctx.model;
-    const { uid, page, pageSize } = search;
-    let offset = (page - 1) * pageSize;
+    // const { Role } = this.ctx.model;
+    // const { uid, page, pageSize } = search;
+    // let offset = (page - 1) * pageSize;
 
-		let userRoleList = await this.ctx.model.query(
-      `
-        SELECT c.* 
-        FROM 
-        user a 
-        INNER JOIN user_role  b  on  a.uid = b.user_id 
-        INNER JOIN role  c  on  b.role_id = c.id
-        WHERE a.uid = ?
-        LIMIT ?
-        OFFSET ?;`,
-      {
-        replacements: [uid, pageSize, offset],
-        type: QueryTypes.SELECT,
-        raw: true
-      }
-    );
+		// let userRoleList = await this.ctx.model.query(
+    //   `
+    //     SELECT c.* 
+    //     FROM 
+    //     user a 
+    //     INNER JOIN user_role  b  on  a.uid = b.user_id 
+    //     INNER JOIN role  c  on  b.role_id = c.id
+    //     WHERE a.uid = ?
+    //     LIMIT ?
+    //     OFFSET ?;`,
+    //   {
+    //     replacements: [uid, pageSize, offset],
+    //     type: QueryTypes.SELECT,
+    //     raw: true
+    //   }
+    // );
 
-    return {
-      list: userRoleList,
-      count: userRoleList.length
-    }
+    // return {
+    //   list: userRoleList,
+    //   count: userRoleList.length
+    // }
   }  
 }
 

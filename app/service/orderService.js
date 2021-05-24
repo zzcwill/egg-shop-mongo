@@ -40,64 +40,64 @@ class MenuService extends Service {
     return user
   } 
   async list(search) {
-    const { Order, OrderInfo, Goods } = this.ctx.model;
-    const { lodash } = this.ctx.helper;
+    // const { Order, OrderInfo, Goods } = this.ctx.model;
+    // const { lodash } = this.ctx.helper;
 
-    const { page, pageSize, customer_name, phone, createDateTimeStart, createDateTimeOver } = search
+    // const { page, pageSize, customer_name, phone, createDateTimeStart, createDateTimeOver } = search
 
-    const Op = this.ctx.app.Sequelize.Op;
-    // console.info(Op)
+    // const Op = this.ctx.app.Sequelize.Op;
+    // // console.info(Op)
 
-    let whereData = {}
+    // let whereData = {}
 
-    if(customer_name) {
-      whereData.customer_name = {
-        [Op.like]: `%${customer_name}%`
-      }
-    }
+    // if(customer_name) {
+    //   whereData.customer_name = {
+    //     [Op.like]: `%${customer_name}%`
+    //   }
+    // }
 
-    if(phone) {
-      whereData.phone = {
-        [Op.like]: `%${phone}%`
-      }
-    }
-    if(createDateTimeStart) {
-      let startTime = createDateTimeStart + ' 00:00:00';
-      whereData.create_time = {
-        [Op.gte]: startTime
-      }    
-    }
-    if(createDateTimeOver) {
-      let endTime = createDateTimeOver + ' 23:59:59';
-      whereData.create_time = {
-        [Op.lt]: endTime
-      }    
-    }
-    if(createDateTimeStart && createDateTimeOver) {
-      let startTime = createDateTimeStart + ' 00:00:00';
-      let endTime = createDateTimeOver + ' 23:59:59';
-      whereData.create_time = {
-        [Op.gte]: startTime,
-        [Op.lt]: endTime
-      }    
-    }
+    // if(phone) {
+    //   whereData.phone = {
+    //     [Op.like]: `%${phone}%`
+    //   }
+    // }
+    // if(createDateTimeStart) {
+    //   let startTime = createDateTimeStart + ' 00:00:00';
+    //   whereData.create_time = {
+    //     [Op.gte]: startTime
+    //   }    
+    // }
+    // if(createDateTimeOver) {
+    //   let endTime = createDateTimeOver + ' 23:59:59';
+    //   whereData.create_time = {
+    //     [Op.lt]: endTime
+    //   }    
+    // }
+    // if(createDateTimeStart && createDateTimeOver) {
+    //   let startTime = createDateTimeStart + ' 00:00:00';
+    //   let endTime = createDateTimeOver + ' 23:59:59';
+    //   whereData.create_time = {
+    //     [Op.gte]: startTime,
+    //     [Op.lt]: endTime
+    //   }    
+    // }
 
-    let offset = (page - 1) * pageSize;
-		const { count, rows } = await Order.findAndCountAll({
-			where: whereData,
-      order: [
-        ['create_time', 'DESC']
-        // ['create_time', 'ASC']
-      ],      
-			offset: offset,
-			limit: pageSize,
-      raw:true
-		});
+    // let offset = (page - 1) * pageSize;
+		// const { count, rows } = await Order.findAndCountAll({
+		// 	where: whereData,
+    //   order: [
+    //     ['create_time', 'DESC']
+    //     // ['create_time', 'ASC']
+    //   ],      
+		// 	offset: offset,
+		// 	limit: pageSize,
+    //   raw:true
+		// });
 
-    return {
-      list: rows,
-      count: count
-    }
+    // return {
+    //   list: rows,
+    //   count: count
+    // }
   }
   async add(orderInfo) {
     const { Order, OrderInfo, Goods } = this.ctx.model;

@@ -16,7 +16,7 @@ module.exports = app => {
 
   CustomerSchema.index({ name: 1 }, { unique: true, name: 'ukey_name' });
 
-  UserSchema.pre('save', function(next) {
+  CustomerSchema.pre('save', function(next) {
     const now = new Date();
     this.modify_time = now;
     next();
