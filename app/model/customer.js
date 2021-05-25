@@ -22,5 +22,7 @@ module.exports = app => {
     next();
   });
 
+  CustomerSchema.set('toObject', { virtuals: true });
+
   return mongoose.model('Customer', CustomerSchema, 'customer');
 };

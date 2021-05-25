@@ -11,7 +11,7 @@ class UserService extends Service {
     let user = await User.findOne(query).exec();
 
     if(user) {
-      user = user.toObject({virtuals: true})
+      // user = user.toObject({virtuals: true})
       let register_time = user.register_time;
       let modify_time = user.modify_time;
       user.register_time = dayjs(register_time).format('YYYY-MM-DD HH:mm:ss');
@@ -45,7 +45,7 @@ class UserService extends Service {
     let toUser = await newUser.save()
 
     if(toUser) {
-      toUser = toUser.toObject({virtuals: true})
+      // toUser = toUser.toObject({virtuals: true})
       let register_time = toUser.register_time;
       let modify_time = toUser.modify_time;
       toUser.register_time = dayjs(register_time).format('YYYY-MM-DD HH:mm:ss');

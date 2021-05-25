@@ -31,5 +31,7 @@ module.exports = app => {
     next();
   });
 
+  OrderSchema.set('toObject', { virtuals: true });
+
   return mongoose.model('Order', OrderSchema, 'order');
 };

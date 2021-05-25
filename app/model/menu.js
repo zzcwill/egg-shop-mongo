@@ -25,5 +25,7 @@ module.exports = app => {
     next();
   });
 
+  MenuSchema.set('toObject', { virtuals: true });
+
   return mongoose.model('Menu', MenuSchema, 'menu');
 };

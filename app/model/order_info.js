@@ -26,5 +26,7 @@ module.exports = app => {
     next();
   });
 
+  OrderInfoSchema.set('toObject', { virtuals: true });
+
   return mongoose.model('OrderInfo', OrderInfoSchema, 'order_info');
 };

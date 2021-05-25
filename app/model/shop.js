@@ -21,5 +21,7 @@ module.exports = app => {
     next();
   });
 
+  ShopSchema.set('toObject', { virtuals: true });
+
   return mongoose.model('Shop', ShopSchema, 'shop');
 };

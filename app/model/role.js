@@ -24,5 +24,7 @@ module.exports = app => {
     next();
   });
 
+  RoleSchema.set('toObject', { virtuals: true });
+
   return mongoose.model('Role', RoleSchema, 'role');
 };

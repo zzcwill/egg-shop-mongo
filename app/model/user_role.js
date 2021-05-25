@@ -6,8 +6,8 @@ module.exports = app => {
   const ObjectId = Schema.ObjectId;
 
   const UserRoleSchema = new Schema({
-    user_id: { type: ObjectId, required: true },
-    role_id: { type: ObjectId, required: true },
+    user_id: { type: Number, required: true },
+    role_id: { type: Number, required: true },
     create_time: { type: Date, default: Date.now, required: true },
     modify_time: { type: Date, default: Date.now, required: true },
   });
@@ -20,6 +20,8 @@ module.exports = app => {
     this.modify_time = now;
     next();
   });
+
+  UserRoleSchema.set('toObject', { virtuals: true });
 
   return mongoose.model('UserRole', UserRoleSchema, 'user_role');
 };

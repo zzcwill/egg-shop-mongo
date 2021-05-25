@@ -11,7 +11,7 @@
  Target Server Version : 40404
  File Encoding         : 65001
 
- Date: 24/05/2021 22:25:18
+ Date: 25/05/2021 13:58:27
 */
 
 
@@ -77,6 +77,276 @@ db.getCollection("goods").createIndex({
 session = db.getMongo().startSession();
 session.startTransaction();
 db = session.getDatabase("shop");
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e3c"),
+    "goods_code": "qd2001",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "米紫",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e3d"),
+    "goods_code": "qd2001",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "黑粉",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e3e"),
+    "goods_code": "th10011",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "黑金",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e3f"),
+    "goods_code": "th10011",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "浅米茶",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e40"),
+    "goods_code": "th10011",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "黑白",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e41"),
+    "goods_code": "th10011",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "中灰",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e42"),
+    "goods_code": "th1008",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "浅米",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e43"),
+    "goods_code": "th1008",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "黑白",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e44"),
+    "goods_code": "th1008",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "黑金",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e45"),
+    "goods_code": "th1009",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "浅灰",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e46"),
+    "goods_code": "th1009",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "黑金",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e47"),
+    "goods_code": "th1009",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "黑白",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e48"),
+    "goods_code": "th13001",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "黑玫红",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e49"),
+    "goods_code": "th13001",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "米紫",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e4a"),
+    "goods_code": "th2006",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "黑绿",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e4b"),
+    "goods_code": "th2006",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "米色",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e4c"),
+    "goods_code": "th2006",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "黑红",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e4d"),
+    "goods_code": "th3001",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "紫色",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e4e"),
+    "goods_code": "th3002",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "米色",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e4f"),
+    "goods_code": "th3003",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "米紫",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e50"),
+    "goods_code": "th3003",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "黑粉",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e51"),
+    "goods_code": "th3009",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "紫色",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e52"),
+    "goods_code": "th3009",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "米紫",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e53"),
+    "goods_code": "th3009",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "黑金",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e54"),
+    "goods_code": "th3009",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "黑亮红",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e55"),
+    "goods_code": "th3010",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "黑粉",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e56"),
+    "goods_code": "th3010",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "紫色",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e57"),
+    "goods_code": "th3010",
+    "goods_size": "36-40",
+    "goods_brand": "花花公子",
+    "goods_color": "黑白",
+    "goods_cost_price": "80",
+    "goods_sex": "0"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e58"),
+    "goods_code": "th3010",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "紫色",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
+db.getCollection("goods").insert([ {
+    _id: ObjectId("60ac91741469640a3f160e59"),
+    "goods_code": "th3010",
+    "goods_size": "39-44",
+    "goods_brand": "花花公子",
+    "goods_color": "黑白",
+    "goods_cost_price": "90",
+    "goods_sex": "1"
+} ]);
 session.commitTransaction(); session.endSession();
 
 // ----------------------------
@@ -105,9 +375,7 @@ db.getCollection("menu").insert([ {
     orders: null,
     "parent_id": null,
     url: null,
-    "logo_tag": null,
-    "register_time": ISODate("2021-05-24T14:06:12.284Z"),
-    "modify_time": ISODate("2021-05-24T14:06:12.289Z"),
+    "logo_tag": null
 } ]);
 db.getCollection("menu").insert([ {
     _id: ObjectId("60abb60b631e6e07e92f32d4"),
@@ -117,9 +385,7 @@ db.getCollection("menu").insert([ {
     url: null,
     "logo_tag": null,
     orders: null,
-    "parent_id": null,
-    "register_time": ISODate("2021-05-24T14:06:12.284Z"),
-    "modify_time": ISODate("2021-05-24T14:06:12.289Z"),
+    "parent_id": null
 } ]);
 db.getCollection("menu").insert([ {
     _id: ObjectId("60abb60f631e6e07e92f32d5"),
@@ -129,9 +395,7 @@ db.getCollection("menu").insert([ {
     "logo_tag": null,
     orders: null,
     "parent_id": null,
-    url: null,
-    "register_time": ISODate("2021-05-24T14:06:12.284Z"),
-    "modify_time": ISODate("2021-05-24T14:06:12.289Z"),
+    url: null
 } ]);
 db.getCollection("menu").insert([ {
     _id: ObjectId("60abb612631e6e07e92f32d6"),
@@ -141,9 +405,7 @@ db.getCollection("menu").insert([ {
     level: 2,
     url: null,
     "logo_tag": null,
-    orders: null,
-    "register_time": ISODate("2021-05-24T14:06:12.284Z"),
-    "modify_time": ISODate("2021-05-24T14:06:12.289Z"),
+    orders: null
 } ]);
 db.getCollection("menu").insert([ {
     _id: ObjectId("60abb615631e6e07e92f32d7"),
@@ -153,9 +415,7 @@ db.getCollection("menu").insert([ {
     level: 2,
     url: null,
     "logo_tag": null,
-    orders: null,
-    "register_time": ISODate("2021-05-24T14:06:12.284Z"),
-    "modify_time": ISODate("2021-05-24T14:06:12.289Z"),
+    orders: null
 } ]);
 db.getCollection("menu").insert([ {
     _id: ObjectId("60abb619631e6e07e92f32d8"),
@@ -165,9 +425,7 @@ db.getCollection("menu").insert([ {
     level: 2,
     url: null,
     "logo_tag": null,
-    orders: null,
-    "register_time": ISODate("2021-05-24T14:06:12.284Z"),
-    "modify_time": ISODate("2021-05-24T14:06:12.289Z"),
+    orders: null
 } ]);
 db.getCollection("menu").insert([ {
     _id: ObjectId("60abb61d631e6e07e92f32d9"),
@@ -177,9 +435,7 @@ db.getCollection("menu").insert([ {
     level: 2,
     url: null,
     "logo_tag": null,
-    orders: null,
-    "register_time": ISODate("2021-05-24T14:06:12.284Z"),
-    "modify_time": ISODate("2021-05-24T14:06:12.289Z"),
+    orders: null
 } ]);
 db.getCollection("menu").insert([ {
     _id: ObjectId("60abb621631e6e07e92f32da"),
@@ -189,9 +445,7 @@ db.getCollection("menu").insert([ {
     level: 2,
     url: null,
     "logo_tag": null,
-    orders: null,
-    "register_time": ISODate("2021-05-24T14:06:12.284Z"),
-    "modify_time": ISODate("2021-05-24T14:06:12.289Z"),
+    orders: null
 } ]);
 db.getCollection("menu").insert([ {
     _id: ObjectId("60abb626631e6e07e92f32db"),
@@ -201,9 +455,7 @@ db.getCollection("menu").insert([ {
     level: 2,
     "logo_tag": null,
     orders: null,
-    url: null,
-    "register_time": ISODate("2021-05-24T14:06:12.284Z"),
-    "modify_time": ISODate("2021-05-24T14:06:12.289Z"),
+    url: null
 } ]);
 session.commitTransaction(); session.endSession();
 
@@ -271,6 +523,26 @@ db.getCollection("role").createIndex({
 session = db.getMongo().startSession();
 session.startTransaction();
 db = session.getDatabase("shop");
+db.getCollection("role").insert([ {
+    _id: ObjectId("60abb863631e6e07e92f32dd"),
+    id: 1,
+    name: "管理员",
+    "role_code": "admin",
+    status: 1,
+    note: null,
+    "create_time": "2021-04-30 15:35:53",
+    "modify_time": "2021-04-30 15:35:53"
+} ]);
+db.getCollection("role").insert([ {
+    _id: ObjectId("60abb871631e6e07e92f32de"),
+    id: 2,
+    name: "普通用户",
+    "role_code": "user",
+    status: 1,
+    note: null,
+    "create_time": "2021-04-30 15:35:53",
+    "modify_time": "2021-04-30 15:35:53"
+} ]);
 session.commitTransaction(); session.endSession();
 
 // ----------------------------
@@ -297,6 +569,67 @@ db.getCollection("role_menu").createIndex({
 session = db.getMongo().startSession();
 session.startTransaction();
 db = session.getDatabase("shop");
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4defab7e942fb23905c4"),
+    "role_id": 1,
+    "menu_id": 1
+} ]);
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4df4ab7e942fb23905c5"),
+    "role_id": 1,
+    "menu_id": 2
+} ]);
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4df9ab7e942fb23905c6"),
+    "role_id": 1,
+    "menu_id": 3
+} ]);
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4e06ab7e942fb23905c7"),
+    "role_id": 1,
+    "menu_id": 4
+} ]);
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4e2fab7e942fb23905c8"),
+    "role_id": 1,
+    "menu_id": 5
+} ]);
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4e33ab7e942fb23905c9"),
+    "role_id": 1,
+    "menu_id": 6
+} ]);
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4e38ab7e942fb23905ca"),
+    "role_id": 1,
+    "menu_id": 7
+} ]);
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4e3cab7e942fb23905cb"),
+    "role_id": 1,
+    "menu_id": 8
+} ]);
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4e40ab7e942fb23905cc"),
+    "role_id": 2,
+    "menu_id": 1
+} ]);
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4e4aab7e942fb23905cd"),
+    "role_id": 2,
+    "menu_id": 4
+} ]);
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4e51ab7e942fb23905ce"),
+    "role_id": 2,
+    "menu_id": 5
+} ]);
+db.getCollection("role_menu").insert([ {
+    _id: ObjectId("60ac4e58ab7e942fb23905cf"),
+    "role_id": 2,
+    "menu_id": 6,
+    "create_time": null
+} ]);
 session.commitTransaction(); session.endSession();
 
 // ----------------------------
@@ -413,4 +746,14 @@ db.getCollection("user_role").createIndex({
 session = db.getMongo().startSession();
 session.startTransaction();
 db = session.getDatabase("shop");
+db.getCollection("user_role").insert([ {
+    _id: ObjectId("60ac4eafab7e942fb23905d1"),
+    "user_id": 1,
+    "role_id": 1
+} ]);
+db.getCollection("user_role").insert([ {
+    _id: ObjectId("60ac4eb2ab7e942fb23905d2"),
+    "user_id": 2,
+    "role_id": 2
+} ]);
 session.commitTransaction(); session.endSession();

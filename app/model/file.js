@@ -23,5 +23,7 @@ module.exports = app => {
     next();
   });
 
+  FileSchema.set('toObject', { virtuals: true });
+
   return mongoose.model('File', FileSchema, 'file');
 };

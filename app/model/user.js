@@ -39,5 +39,8 @@ module.exports = app => {
     next();
   }); 
 
+  UserSchema.set('toObject', { virtuals: true });
+  // UserSchema.set('toJSON', { virtuals: true });
+
   return mongoose.model('User', UserSchema, 'user');
 };

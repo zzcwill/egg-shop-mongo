@@ -21,5 +21,7 @@ module.exports = app => {
     next();
   });
 
+  RoleMenuSchema.set('toObject', { virtuals: true });
+
   return mongoose.model('RoleMenu', RoleMenuSchema, 'role_menu');
 };
