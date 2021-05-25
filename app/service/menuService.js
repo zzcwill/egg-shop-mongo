@@ -67,7 +67,9 @@ class MenuService extends Service {
 
     let userRoleList = await User.aggregate([
       {
-        $match: { uid: uid }
+        $match: { 
+          uid: uid 
+        }
       },
       {
         $lookup: {

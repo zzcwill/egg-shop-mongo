@@ -6,7 +6,8 @@ module.exports = app => {
   const ObjectId = Schema.ObjectId;
 
   const CustomerSchema = new Schema({
-    name: { type: String, required: true, default: null },
+    id: { type: Number, required: true },
+    name: { type: String, required: true },
     phone: { type: String, default: null  },
     address: { type: String, default: null  },
     status: { type: Number, default: 1, required: true },

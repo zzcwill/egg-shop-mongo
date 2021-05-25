@@ -11,7 +11,7 @@
  Target Server Version : 40404
  File Encoding         : 65001
 
- Date: 25/05/2021 13:58:27
+ Date: 25/05/2021 14:32:03
 */
 
 
@@ -34,6 +34,46 @@ db.getCollection("customer").createIndex({
 session = db.getMongo().startSession();
 session.startTransaction();
 db = session.getDatabase("shop");
+db.getCollection("customer").insert([ {
+    _id: ObjectId("60ac989fa6698f145d361134"),
+    id: 1,
+    name: "不留名客户",
+    status: 1,
+    address: null,
+    phone: null,
+    "create_time": "2021-04-30 16:14:09",
+    "modify_time": "2021-04-30 16:14:09"
+} ]);
+db.getCollection("customer").insert([ {
+    _id: ObjectId("60ac9968a6698f145d361135"),
+    id: 2,
+    name: "华贸",
+    status: 1,
+    address: null,
+    phone: null,
+    "create_time": "2021-04-30 16:14:09",
+    "modify_time": "2021-04-30 16:14:09"
+} ]);
+db.getCollection("customer").insert([ {
+    _id: ObjectId("60ac9990a6698f145d361136"),
+    id: 3,
+    name: "小郑",
+    status: 1,
+    address: null,
+    phone: null,
+    "create_time": "2021-04-30 16:14:09",
+    "modify_time": "2021-04-30 16:14:09"
+} ]);
+db.getCollection("customer").insert([ {
+    _id: ObjectId("60ac999da6698f145d361137"),
+    id: 4,
+    name: "批发客户",
+    status: 1,
+    address: null,
+    phone: null,
+    "create_time": "2021-04-30 16:14:09",
+    "modify_time": "2021-04-30 16:14:09"
+} ]);
 session.commitTransaction(); session.endSession();
 
 // ----------------------------
