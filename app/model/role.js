@@ -1,4 +1,5 @@
 'use strict';
+const dayjs = require('dayjs');
 
 module.exports = app => {
   const mongoose = app.mongoose;
@@ -11,9 +12,27 @@ module.exports = app => {
     role_code: { type: String, required: true },
     note: { type: String, default: null  },
     status: { type: Number, default: 1, required: true },
-    create_time: { type: Date, default: Date.now, required: true },
-    modify_time: { type: Date, default: Date.now, required: true }
-  });
+    create_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      }
+    },
+    modify_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      }      
+    }
+  },
+  {
+    versionKey: false
+  }
+);
 
   RoleSchema.index({ id: 1 }, { name: 'key_id' });
 
@@ -23,7 +42,7 @@ module.exports = app => {
     next();
   });
 
-  RoleSchema.set('toObject', { virtuals: true });
+  RoleSchema.set('toJSON', { virtuals: true, getters: true });
 
   return mongoose.model('Role', RoleSchema, 'role');
 };

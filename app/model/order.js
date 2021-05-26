@@ -1,9 +1,10 @@
 'use strict';
+const dayjs = require('dayjs')
 
 module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
-  const ObjectId = Schema.ObjectId;
+  // const ObjectId = Schema.ObjectId;
   // const Decimal128 = mongoose.Decimal128;
 
   const OrderSchema = new Schema({
@@ -20,9 +21,27 @@ module.exports = app => {
     order_fee: { type: Number, required: true },
     order_discount_fee: { type: Number, default: 0.00, required: true },
     is_deleted: { type: Number, default: 0, required: true },
-    create_time: { type: Date, default: Date.now, required: true },
-    modify_time: { type: Date, default: Date.now, required: true },
-  });
+    create_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      }
+    },
+    modify_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      }      
+    }
+  },
+  {
+    versionKey: false
+  }
+);
 
   OrderSchema.index({ order_code: 1 }, {name: 'key_order_code' });
 
@@ -32,7 +51,7 @@ module.exports = app => {
     next();
   });
 
-  OrderSchema.set('toObject', { virtuals: true });
+  OrderSchema.set('toJSON', { virtuals: true, getters: true });
 
   return mongoose.model('Order', OrderSchema, 'order');
 };

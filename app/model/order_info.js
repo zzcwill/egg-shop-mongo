@@ -1,4 +1,5 @@
 'use strict';
+const dayjs = require('dayjs');
 
 module.exports = app => {
   const mongoose = app.mongoose;
@@ -12,9 +13,27 @@ module.exports = app => {
     actual_price: { type: Number, required: true, default: null  },
     actual_fee: { type: Number, required: true, default: null  },
     is_deleted: { type: Number, default: 0, required: true },
-    create_time: { type: Date, default: Date.now, required: true },
-    modify_time: { type: Date, default: Date.now, required: true },
-  });
+    create_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      }
+    },
+    modify_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      }      
+    }
+  },
+  {
+    versionKey: false
+  }
+);
 
   OrderInfoSchema.index({ order_id: 1 },{name: 'key_order_id' });
   OrderInfoSchema.index({ goods_id: 1 },{name: 'key_goods_id'});
@@ -25,7 +44,7 @@ module.exports = app => {
     next();
   });
 
-  OrderInfoSchema.set('toObject', { virtuals: true });
+  OrderInfoSchema.set('toJSON', { virtuals: true, getters: true });
 
   return mongoose.model('OrderInfo', OrderInfoSchema, 'order_info');
 };

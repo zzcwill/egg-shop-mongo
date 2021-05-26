@@ -1,22 +1,22 @@
 'use strict';
 
 const Service = require('egg').Service;
-const dayjs = require('dayjs');
+// const dayjs = require('dayjs');
 
 class UserService extends Service {
   async getUserByUsername(username) {
     const { User } = this.ctx.model;
+    
 
     const query = { username: username };
     let user = await User.findOne(query).exec();
 
-    if(user) {
-      // user = user.toObject({virtuals: true})
-      let register_time = user.register_time;
-      let modify_time = user.modify_time;
-      user.register_time = dayjs(register_time).format('YYYY-MM-DD HH:mm:ss');
-      user.modify_time = dayjs(modify_time).format('YYYY-MM-DD HH:mm:ss');
-    }     
+    // if(user) {
+    //   let register_time = user.register_time;
+    //   let modify_time = user.modify_time;
+    //   user.register_time = dayjs(register_time).format('YYYY-MM-DD HH:mm:ss');
+    //   user.modify_time = dayjs(modify_time).format('YYYY-MM-DD HH:mm:ss');
+    // }     
 
     return user
   }

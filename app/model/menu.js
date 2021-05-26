@@ -1,4 +1,5 @@
 'use strict';
+const dayjs = require('dayjs');
 
 module.exports = app => {
   const mongoose = app.mongoose;
@@ -13,9 +14,27 @@ module.exports = app => {
     orders: { type: Number, default: null  },
     logo_tag: { type: String, default: null  },
     level: { type: Number, default: null  },
-    create_time: { type: Date, default: Date.now, required: true },
-    modify_time: { type: Date, default: Date.now, required: true }
-  });
+    create_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      }
+    },
+    modify_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      }      
+    }
+  },
+  {
+    versionKey: false,
+  }
+);
 
   MenuSchema.index({ id: 1 }, { name: 'key_id' });
 
@@ -25,7 +44,7 @@ module.exports = app => {
     next();
   });
 
-  MenuSchema.set('toObject', { virtuals: true });
+  MenuSchema.set('toJSON', { virtuals: true, getters: true });
 
   return mongoose.model('Menu', MenuSchema, 'menu');
 };

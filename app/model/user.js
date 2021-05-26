@@ -1,4 +1,5 @@
 'use strict';
+const dayjs = require('dayjs');
 
 module.exports = app => {
   const mongoose = app.mongoose;
@@ -21,9 +22,27 @@ module.exports = app => {
     last_login_time: { type: Date, default: null },
     openid: { type: String, default: null },
     is_on_duty: { type: Number, default: 1, required: true },
-    register_time: { type: Date, default: Date.now, required: true },
-    modify_time: { type: Date, default: Date.now, required: true }
-  });
+    register_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      }
+    },
+    modify_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      } 
+    }
+  },
+  {
+    versionKey: false
+  }
+);
 
   UserSchema.index({ uid: 1 }, { unique: true, name: 'ukey_uid' });
   UserSchema.index({ username: 1 }, { unique: true, name: 'ukey_username' });
@@ -39,8 +58,8 @@ module.exports = app => {
     next();
   }); 
 
-  UserSchema.set('toObject', { virtuals: true });
-  // UserSchema.set('toJSON', { virtuals: true });
+  // UserSchema.set('toObject', { virtuals: true });
+  UserSchema.set('toJSON', { virtuals: true, getters: true });
 
   return mongoose.model('User', UserSchema, 'user');
 };

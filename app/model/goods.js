@@ -1,4 +1,5 @@
 'use strict';
+const dayjs = require('dayjs');
 
 module.exports = app => {
   const mongoose = app.mongoose;
@@ -18,9 +19,27 @@ module.exports = app => {
     goods_note: { type: String, default: null  },
     goods_images: { type: Array, default: null },
     is_deleted: { type: Number, default: 0, required: true },
-    create_time: { type: Date, default: Date.now, required: true },
-    modify_time: { type: Date, default: Date.now, required: true },
-  });
+    create_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      }
+    },
+    modify_time: { 
+      type: Date, 
+      default: Date.now, 
+      required: true,
+      get(val) {
+        return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+      }      
+    }
+  },
+  {
+    versionKey: false
+  }
+);
 
   GoodsSchema.index({ goods_code: 1, goods_color:1, goods_sex:1}, { unique: true, name: 'key_goods_code' });
 
@@ -30,7 +49,7 @@ module.exports = app => {
     next();
   });
 
-  GoodsSchema.set('toObject', { virtuals: true });
+  GoodsSchema.set('toJSON', { virtuals: true, getters: true });
 
   return mongoose.model('Goods', GoodsSchema, 'goods');
 };
