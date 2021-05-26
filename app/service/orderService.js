@@ -7,19 +7,9 @@ class MenuService extends Service {
     const { Order, OrderInfo, Goods } = this.ctx.model;
     const { lodash } = this.ctx.helper;
 
-    let user = await Order.findOne({
-      where: {
-        id
-      },
-      raw:true
-    })
+    let user = await Order.findOne({ id: id }).exec();
 
-    let shoesArr = await OrderInfo.findAll({
-      where: {
-        order_id: id
-      },
-      raw:true
-    })
+    let shoesArr = await OrderInfo.find({ order_id: id }).exec();
 
 		let shoesArrInfo = await Promise.all(
 			shoesArr.map(
@@ -181,7 +171,7 @@ class MenuService extends Service {
     const { lodash } = this.ctx.helper;
 
 		let { id } = search;
-    let t = null;
+
     //事务
     let result = {
       error: {},
@@ -189,30 +179,14 @@ class MenuService extends Service {
     }    
 
     try{
-      t = await this.ctx.model.transaction();
-
-      await Order.destroy({
-        where: {
-          id: id
-        },
-        raw:true,
-        transaction: t
-      });       
-
-      await OrderInfo.destroy({
-        where: {
-          order_id: id
-        },
-        raw:true,
-        transaction: t
-      });
-    
-      await t.commit();
+      let query = { id: id }
+      await Order.deleteOne(query).exec();   
+      let query2 = { order_id: id } 
+      await OrderInfo.delete(query2).exec();      
       result.isOK = 1
     
     } catch (error) {
       console.info(error)
-      await t.rollback();
       result = {
         error: error,
         isOK: 0       

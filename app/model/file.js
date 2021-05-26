@@ -6,6 +6,7 @@ module.exports = app => {
   const ObjectId = Schema.ObjectId;
 
   const FileSchema = new Schema({
+    id: { type: Number, required: true },
     file_type: { type: String, required: true },
     file_size: { type: String, default: null  },
     file_url: { type: String, required: true },

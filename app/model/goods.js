@@ -6,6 +6,7 @@ module.exports = app => {
   const ObjectId = Schema.ObjectId;
 
   const GoodsSchema = new Schema({
+    id: { type: Number, required: true },
     goods_code: { type: String, required: true },
     goods_price: { type: String, default: null  },
     goods_size: { type: String, default: null  },

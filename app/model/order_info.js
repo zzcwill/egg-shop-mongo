@@ -7,8 +7,8 @@ module.exports = app => {
   const Decimal128 = mongoose.Schema.Types.Decimal128;
 
   const OrderInfoSchema = new Schema({
-    order_id: { type: ObjectId, required: true },
-    goods_id: { type: ObjectId, required: true },
+    order_id: { type: Number, required: true },
+    goods_id: { type: Number, required: true },
     num: { type: Number, default: null  },
     actual_price: { type: Decimal128, required: true, default: null  },
     actual_fee: { type: Decimal128, required: true, default: null  },

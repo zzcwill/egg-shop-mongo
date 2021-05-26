@@ -11,7 +11,7 @@
  Target Server Version : 40404
  File Encoding         : 65001
 
- Date: 25/05/2021 14:32:03
+ Date: 26/05/2021 10:12:15
 */
 
 
@@ -124,7 +124,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "米紫",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 1
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e3d"),
@@ -133,7 +134,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑粉",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 2
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e3e"),
@@ -142,7 +144,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑金",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 3
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e3f"),
@@ -151,7 +154,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "浅米茶",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 4
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e40"),
@@ -160,7 +164,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑白",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 5
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e41"),
@@ -169,7 +174,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "中灰",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 6
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e42"),
@@ -178,7 +184,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "浅米",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 7
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e43"),
@@ -187,7 +194,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑白",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 8
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e44"),
@@ -196,7 +204,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑金",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 9
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e45"),
@@ -205,7 +214,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "浅灰",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 10
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e46"),
@@ -214,7 +224,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑金",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 11
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e47"),
@@ -223,7 +234,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑白",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 12
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e48"),
@@ -232,7 +244,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑玫红",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 13
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e49"),
@@ -241,7 +254,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "米紫",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 14
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e4a"),
@@ -250,7 +264,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑绿",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 15
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e4b"),
@@ -259,7 +274,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "米色",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 16
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e4c"),
@@ -268,7 +284,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑红",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 17
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e4d"),
@@ -277,7 +294,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "紫色",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 18
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e4e"),
@@ -286,7 +304,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "米色",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 19
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e4f"),
@@ -295,7 +314,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "米紫",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 20
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e50"),
@@ -304,7 +324,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑粉",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 21
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e51"),
@@ -313,7 +334,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "紫色",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 22
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e52"),
@@ -322,7 +344,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "米紫",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 23
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e53"),
@@ -331,7 +354,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑金",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 24
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e54"),
@@ -340,7 +364,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑亮红",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 25
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e55"),
@@ -349,7 +374,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑粉",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 26
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e56"),
@@ -358,7 +384,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "紫色",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 27
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e57"),
@@ -367,7 +394,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑白",
     "goods_cost_price": "80",
-    "goods_sex": "0"
+    "goods_sex": "0",
+    id: 28
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e58"),
@@ -376,7 +404,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "紫色",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 29
 } ]);
 db.getCollection("goods").insert([ {
     _id: ObjectId("60ac91741469640a3f160e59"),
@@ -385,7 +414,8 @@ db.getCollection("goods").insert([ {
     "goods_brand": "花花公子",
     "goods_color": "黑白",
     "goods_cost_price": "90",
-    "goods_sex": "1"
+    "goods_sex": "1",
+    id: 30
 } ]);
 session.commitTransaction(); session.endSession();
 

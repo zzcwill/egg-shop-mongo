@@ -6,10 +6,13 @@ class CustomerService extends Service {
   async allList() {
     const { Customer } = this.ctx.model;
 
-		const rows = await Customer.findAll({
-			where: {},
-      raw:true
-		});
+    let whereData = {}
+    const opts = { 
+      sort: {
+        create_time: -1
+      } 
+    };
+    let rows = await Customer.find(whereData, '', opts).exec();
 
     return {
       list: rows
@@ -19,51 +22,75 @@ class CustomerService extends Service {
     const { Customer } = this.ctx.model;
     const { page, pageSize } = search;
     let offset = (page - 1) * pageSize;
-		const { count, rows } = await Customer.findAndCountAll({
-			where: {},
-			offset: offset,
-			limit: pageSize,
-      raw:true
-		});
+    
+    let whereData = {}
+    const opts = { 
+      skip: offset, 
+      limit: pageSize, 
+      sort: {
+        create_time: -1
+      } 
+    };
+    let customerList = await Customer.find(whereData, '', opts).exec();
 
     return {
-      list: rows,
-      count: count
+      list: customerList,
+      count: customerList.length
     }
   }
   async add(customer) {
     const { Customer } = this.ctx.model;
-    let newCustomer = await Customer.create(customer)
+
+    let query = {};
+    const opts = { 
+      skip: 0, 
+      limit: 1, 
+      sort: {
+        id: -1
+      } 
+    };
+    let maxCustomer = await Customer.find(query, '', opts).exec();
+
+    if(maxCustomer.length === 0) {
+      customer.id = 1;
+    }
+    if(maxCustomer.length !== 0) {
+      customer.id = maxCustomer[0].toObject().id + 1;
+    }
+
+    let tocustomer = new Customer(customer)
+    let newCustomer = await tocustomer.save()
     return newCustomer
   }
   async update(search) {
     const { Customer } = this.ctx.model;
 		let { id, name, phone, address } = search;
 
-    let isOk = await Customer.update(
-      {
-				name: name,
-				phone: phone,
-				address: address
-			},
-      {
-        //条件
-        where: {
-					id: id
-				}
-      }
-    )
-    return isOk[0]
+    let updateData = {
+      name,
+      phone,
+      address
+    }
+    const query = { id: id };
+    const update = { $set: { name, phone, address } };
+    let isOk = await Customer.update(query, update, { multi: true }).exec();
+
+    return isOk.n
   }
 	async delete(search) {
     const { Customer } = this.ctx.model;
 		let { id } = search;
-		let isOk = await Customer.destroy({
-			where: {
-				id: id
-			}
-		})
-    return isOk		
+    let query = { id: id }
+
+    let result = {
+      error: {},
+      isOK: 0
+    }
+    let toDo = await Customer.deleteOne(query).exec();
+    
+    result.isOk = toDo.n
+
+    return result	
 	}  
 }
 

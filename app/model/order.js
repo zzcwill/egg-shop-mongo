@@ -7,6 +7,7 @@ module.exports = app => {
   const Decimal128 = mongoose.Schema.Types.Decimal128;
 
   const OrderSchema = new Schema({
+    id: { type: Number, required: true },
     order_code: { type: String, required: true },
     customer_id: { type: ObjectId, required: true },
     shop_id: { type: Number, required: true },

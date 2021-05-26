@@ -17,12 +17,9 @@ class GoodsService extends Service {
   }  
   async getGoodsById(id) {
     const { Goods } = this.ctx.model;
-    let goods = await Goods.findOne({
-      where: {
-        id
-      },
-      raw:true
-    })
+
+    let goods = await Goods.findOne({ id: id }).exec();
+
     return goods
   }
   async add(goods) {
