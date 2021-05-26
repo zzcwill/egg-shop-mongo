@@ -64,6 +64,7 @@
 				data: apiData,
 				success: function (res) {
 					console.log(res);
+					console.info(res.data.list[0].order_fee.$numberDecimal)
 				},
 				error: function () {
 				}
@@ -74,12 +75,12 @@
 					  {
 							goods_id : 1,
 							num: 4,
-							actual_price: 100
+							actual_price: 100.1
 						},
 					  {
 							goods_id : 2,
 							num: 4,
-							actual_price: 100
+							actual_price: 100.1
 						}						
 				]
 			var shoesArr = JSON.stringify(arr)
@@ -95,7 +96,7 @@
 
 				sale_type: 1,
 				express_fee: 10,
-				order_fee: 800,
+				order_fee: 800.8,
 				order_discount_fee: 0,
 				shoesArr: shoesArr
 			}
@@ -117,7 +118,8 @@
 
 			var apiData = {
 				token: token,
-				id: 6
+				id: 10,
+				customer_name: 'test'
 			}
 
 			$.ajax({

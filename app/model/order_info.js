@@ -4,14 +4,13 @@ module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
   const ObjectId = Schema.ObjectId;
-  const Decimal128 = mongoose.Schema.Types.Decimal128;
 
   const OrderInfoSchema = new Schema({
     order_id: { type: Number, required: true },
     goods_id: { type: Number, required: true },
     num: { type: Number, default: null  },
-    actual_price: { type: Decimal128, required: true, default: null  },
-    actual_fee: { type: Decimal128, required: true, default: null  },
+    actual_price: { type: Number, required: true, default: null  },
+    actual_fee: { type: Number, required: true, default: null  },
     is_deleted: { type: Number, default: 0, required: true },
     create_time: { type: Date, default: Date.now, required: true },
     modify_time: { type: Date, default: Date.now, required: true },

@@ -199,16 +199,18 @@ class CustomerController extends Controller {
 
 		let getData = ctx.request.body;
 
-		let result = await customerService.delete(getData);
+		let isOK = await customerService.delete(getData);
 
-		if(result.isOK === 0) {
+		console.info(isOK)
+
+		if(isOK === 0) {
 			let error = new ParameterException('数据库删除客户信息失败')
 			throw error;
 			return			
 		}
 
 		ctx.body = resOk({
-			isOK: result.isOK
+			isOK: isOK
 		})	
 	} 
 }

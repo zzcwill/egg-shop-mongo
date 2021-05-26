@@ -82,15 +82,9 @@ class CustomerService extends Service {
 		let { id } = search;
     let query = { id: id }
 
-    let result = {
-      error: {},
-      isOK: 0
-    }
     let toDo = await Customer.deleteOne(query).exec();
-    
-    result.isOk = toDo.n
 
-    return result	
+    return toDo.n	
 	}  
 }
 

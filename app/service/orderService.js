@@ -2,32 +2,28 @@
 
 const Service = require('egg').Service;
 
-class MenuService extends Service {
+class OrderService extends Service {
   async getOrderById(id) {
     const { Order, OrderInfo, Goods } = this.ctx.model;
     const { lodash } = this.ctx.helper;
 
-    let user = await Order.findOne({ id: id }).exec();
-
+    let order = await Order.findOne({ id: id }).exec();
+    // console.info(oder)
     let shoesArr = await OrderInfo.find({ order_id: id }).exec();
+    // console.info(shoesArr)
+    let newShoesArr = []
+    shoesArr.map((item) => {
+      newShoesArr.push(item.goods_id)
+    })
 
-		let shoesArrInfo = await Promise.all(
-			shoesArr.map(
-				async (item) =>{
-					let itemGoods = await this.service.goodsService.getGoodsById(item.goods_id)
-          // console.info(itemGoods)
-					item.goods_brand = itemGoods.goods_brand
-          item.goods_code = itemGoods.goods_code
-          item.goods_sex = itemGoods.goods_sex
-          item.goods_color = itemGoods.goods_color
-					return item
-				}
-			)
-		)
+    let query = { id: { $in: newShoesArr } };
+    const opts = {};
+    let goodsList = await Goods.find(query, '', opts).exec();
 
-    user.shoesArr = shoesArrInfo;
+    order = order.toObject()
+    order.shoesArr = goodsList;
 
-    return user
+    return order
   } 
   async list(search) {
     const { Order, OrderInfo, Goods } = this.ctx.model;
@@ -90,48 +86,49 @@ class MenuService extends Service {
     const { Order, OrderInfo, Goods } = this.ctx.model;
     const { lodash } = this.ctx.helper;
 
-    let { order_code, shoesArr } = orderInfo;
+    let { shoesArr } = orderInfo;
 
-    let t = null;
     //事务
     let result = {
       error: {},
       isOK: 0
     }
     try {
-        t = await this.ctx.model.transaction();
       
         let newOrder = lodash.pick(orderInfo, ['order_code', 'customer_name', 'customer_id', 'phone', 'address', 'shop_id', 'sale_type', 'express_fee', 'order_fee', 'order_discount_fee']);
-        await Order.create(newOrder, { transaction: t })
-    
-        let order = await Order.findOne({
-          where: {
-            order_code: order_code
-          },
-          raw:true,
-          transaction: t
-        })
 
-        console.info(order_code)
-        console.info(order.id)
+        let query = {};
+        const opts = { 
+          skip: 0, 
+          limit: 1, 
+          sort: {
+            id: -1
+          } 
+        };        
+        let maxOrder = await Order.find(query, '', opts).exec();
+        if(maxOrder.length === 0) {
+          newOrder.id = 1;
+        }
+        if(maxOrder.length !== 0) {
+          newOrder.id = maxOrder[0].toObject().id + 1;
+        }
+        let toorder = new Order(newOrder);
+        let order = await toorder.save()
 
         for(let key = 0 ; key < shoesArr.length ; key++ ) {
           let item = shoesArr[key]
 
           let sunMoney = item.num * item.actual_price;
-          await OrderInfo.create(
-            {
-              order_id: order.id,
-              goods_id: item.goods_id,
-              num: item.num,
-              actual_price: item.actual_price,
-              actual_fee: sunMoney
-            },
-            { transaction: t }
-          );       
+
+          let newOrderInfo = new OrderInfo({
+            order_id: order.id,
+            goods_id: item.goods_id,
+            num: item.num,
+            actual_price: item.actual_price,
+            actual_fee: sunMoney            
+          })  
+          await newOrderInfo.save()   
         }
-        
-        await t.commit();
 
         result.isOK = 1;
 
@@ -142,7 +139,6 @@ class MenuService extends Service {
         error: error,
         isOK: 0       
       }
-      await t.rollback();
     }
     return result
   }
@@ -152,19 +148,10 @@ class MenuService extends Service {
 
 		let { id, customer_name } = search;
 
-    let isOk = await Order.update(
-      {
-				customer_name: customer_name,
-			},
-      {
-        //条件
-        where: {
-					id: id
-				},
-        raw:true
-      }
-    )
-    return isOk[0]
+    const query = { id };
+    const update = { customer_name };
+    let isOk = await Order.updateOne(query, update).exec();    
+    return isOk.n
   }
 	async delete(search) {
     const { Order, OrderInfo, Goods } = this.ctx.model;
@@ -182,7 +169,7 @@ class MenuService extends Service {
       let query = { id: id }
       await Order.deleteOne(query).exec();   
       let query2 = { order_id: id } 
-      await OrderInfo.delete(query2).exec();      
+      await OrderInfo.remove(query2).exec();      
       result.isOK = 1
     
     } catch (error) {
@@ -198,5 +185,5 @@ class MenuService extends Service {
 	} 
 }
 
-module.exports = MenuService;
+module.exports = OrderService;
 

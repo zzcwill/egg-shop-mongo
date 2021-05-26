@@ -6,10 +6,13 @@ class GoodsService extends Service {
   async allList() {
     const { Goods } = this.ctx.model;
 
-		const rows = await Goods.findAll({
-			where: {},
-      raw:true
-		});
+    let whereData = {}
+    const opts = { 
+      sort: {
+        create_time: -1
+      } 
+    };
+    let rows = await Goods.find(whereData, '', opts).exec();
 
     return {
       list: rows

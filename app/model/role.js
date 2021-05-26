@@ -4,7 +4,6 @@ module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
   const ObjectId = Schema.ObjectId;
-  const Decimal128 = mongoose.Schema.Types.Decimal128;
 
   const RoleSchema = new Schema({
     id: { type: Number, required: true  },
